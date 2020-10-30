@@ -13,18 +13,24 @@ namespace ej4._1._4._4
             for (i = 0; i < cantidad; i++)
                 Console.Write("{0} ", datos[i]);
             Console.WriteLine();
+            // 4.1.4.1
+            Console.WriteLine("Número a buscar:");
+            int buscar = Convert.ToInt32(Console.ReadLine());
+            int repetido = 0;
             for (i = 0; i < cantidad; i++)
-                if (datos[i] == 15)
-                    Console.WriteLine("15 encontrado en la posición {0} ", i + 1);
+                if (datos[i] == buscar)
+                    Console.WriteLine("Encontrado en la posición {0} ", i + 1);repetido++;
+            Console.WriteLine("Se ha encontrado {0} veces.", repetido);
             int maximo = datos[0];
             for (i = 1; i < cantidad; i++)
                 if (datos[i] > maximo)
                     maximo = datos[i];
             Console.WriteLine("El máximo es {0} ", maximo);
-            Console.WriteLine("Añadiendo 6 al final");
+            // 4.1.4.2
+            Console.WriteLine("Añade un numero al final");
             if (cantidad < capacidad)
             {
-                datos[cantidad] = 6;
+                datos[cantidad] = Convert.ToInt32(Console.ReadLine());
                 cantidad++;
             }
             for (i = 0; i < cantidad; i++)
@@ -43,6 +49,7 @@ namespace ej4._1._4._4
             {
                 try 
                 {
+                    //4.1.4.3
                     Console.WriteLine("Escoja un nuevo número: ");
                     int nuevo = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Insertar en que posición ?");
@@ -54,6 +61,7 @@ namespace ej4._1._4._4
                     for (i = 0; i < datos.Length; i++)
                         Console.Write("{0} ", datos[i]);
                     Console.WriteLine();
+                    //4.1.4.4
                     Console.WriteLine("Que posicion desaea eliminar? : ");
                     int posBorrar = Convert.ToInt32(Console.ReadLine())-1;
                     for (i = posBorrar; i < datos.Length - 1; i++)
