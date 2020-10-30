@@ -13,7 +13,9 @@ namespace ej4._1._4._4
             for (i = 0; i < cantidad; i++)
                 Console.Write("{0} ", datos[i]);
             Console.WriteLine();
-            // 4.1.4.1
+            //
+            // EJERCICIO 4.1.4.1
+            //
             Console.WriteLine("Número a buscar:");
             int buscar = Convert.ToInt32(Console.ReadLine());
             int repetido = 0;
@@ -26,7 +28,9 @@ namespace ej4._1._4._4
                 if (datos[i] > maximo)
                     maximo = datos[i];
             Console.WriteLine("El máximo es {0} ", maximo);
-            // 4.1.4.2
+            //
+            // EJERCICIO 4.1.4.2
+            //
             Console.WriteLine("Añade un numero al final");
             if (cantidad < capacidad)
             {
@@ -48,8 +52,11 @@ namespace ej4._1._4._4
             if (cantidad < capacidad)
             {
                 try 
-                {
-                    //4.1.4.3
+                {   
+                    //
+                    // EJERCICIO 4.1.4.3
+                    //
+
                     Console.WriteLine("Escoja un nuevo número: ");
                     int nuevo = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Insertar en que posición ?");
@@ -61,7 +68,9 @@ namespace ej4._1._4._4
                     for (i = 0; i < datos.Length; i++)
                         Console.Write("{0} ", datos[i]);
                     Console.WriteLine();
-                    //4.1.4.4
+                    //
+                    // EJERCICIO 4.1.4.4
+                    //
                     Console.WriteLine("Que posicion desaea eliminar? : ");
                     int posBorrar = Convert.ToInt32(Console.ReadLine())-1;
                     for (i = posBorrar; i < datos.Length - 1; i++)
