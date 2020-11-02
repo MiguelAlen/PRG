@@ -11,23 +11,27 @@ namespace ej4._1._4._5
             bool menu = true;
             int capacidad = 10;
             int cantidad = 0;
+            Console.WriteLine("Creada lista con 10 espacios." +
+                    "\nMenu:" +
+                    "\n1: Añadir un dato al final." +
+                    "\n2: Añadir un dato en una posición determinada." +
+                    "\n3: Borrar un dato." +
+                    "\n4: Mostrar contenido." +
+                    "\n5: Fin."
+                    );
             try {
                 while (menu == true)
                 {
-                    Console.WriteLine("Menu:" +
-                    "\n Introduzca número para acción" +
-                    "\n 1: Añadir un dato al final" +
-                    "\n 2: Añadir un dato en una posición determinada" +
-                    "\n 3: Borrar un dato" +
-                    "\n 4: Mostrar contenido" +
-                    "\n 5: Fin"
-                    );
+                    Console.WriteLine("\nIntroduzca número para acción" +
+                                        "\n");
                     int accion = Convert.ToInt32(Console.ReadLine());
                     if (accion == 1) {
                         if (cantidad < capacidad)
                         {
+                            Console.WriteLine("Nuevo dato a introducir: ");
                             datos[cantidad] = Convert.ToString(Console.ReadLine());
                             cantidad++;
+                            Console.WriteLine("Dato a introducido. ");
                         }
                     }
                     if (accion == 2) {
@@ -39,6 +43,7 @@ namespace ej4._1._4._5
                             datos[i] = datos[i - 1];
                         datos[posicionInsertar] = nuevo;
                         cantidad++;
+                        Console.WriteLine("Dato insertado.");
                     }
                     if (accion == 3) {
                         Console.WriteLine("Que posicion desaea eliminar? : ");
@@ -47,8 +52,11 @@ namespace ej4._1._4._5
                             datos[i] = datos[i + 1];
                         cantidad--;
                         datos[cantidad + 1] = "";
+                        Console.WriteLine("Dato eliminado.");
                     }
                     if (accion == 4) {
+                        Console.WriteLine("Contenido: ");
+                        if (cantidad == 0) { Console.WriteLine("Actualmente vacio."); }
                         for (int i = 0; i < cantidad; i++)
                             Console.Write("{0} ", datos[i]);
                         Console.WriteLine();
@@ -61,6 +69,7 @@ namespace ej4._1._4._5
                 Console.WriteLine("Ha habido un error: {0}",
                 errorEncontrado.Message);
             }
+            Console.WriteLine("Fin del programa.");
         }
     }
 }
