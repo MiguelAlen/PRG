@@ -22,9 +22,36 @@ namespace calculadora
             int contador = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Introduzca primera operación:");
             char accion = Convert.ToChar(Console.ReadLine());
+            if (accion =! '+' || '-' || '' || '' || '' || '') 
+                { 
+                    Console.WriteLine("Operacion no valida"); 
+                }
             while (accion != 's')
             {
+                if (accion == '+')
+                {
 
+                }
+                if (accion == '-')
+                {
+
+                }
+                if (accion == '*')
+                {
+
+                }
+                if (accion == '/')
+                {
+
+                }
+                if (accion == '=')
+                {
+
+                }
+                if (accion == 's')
+                {
+                    break
+                }
             }
         }
     }
