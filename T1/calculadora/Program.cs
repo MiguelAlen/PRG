@@ -11,6 +11,11 @@ namespace calculadora
     {
         static void Main(string[] args)
         {
+            //variables locales
+            char accion;
+            double contador;
+            bool terminar = true;
+            //menu por pantalla
             Console.WriteLine("Calculadora.\nOperaciones:");
             Console.WriteLine(" + para realizar la operación suma.");
             Console.WriteLine(" - para realizar la operación resta.");
@@ -18,47 +23,60 @@ namespace calculadora
             Console.WriteLine(" / para realizar la operación división.");
             Console.WriteLine(" = para mostrar el resultado de la operación acumulada y reinicializar el contenido a cero.");
             Console.WriteLine(" s para salir del programa.");
-            char accion;
-            double contador = 0;
-            Console.WriteLine(" \nIntroduzca un valor para operar:");
-            double operador1 = Convert.ToDouble(Console.ReadLine());
-            try
+            while (terminar)
             {
-                do
+                try
                 {
-                    accion = Convert.ToChar(Console.ReadLine());
-                    if (accion == '+')
+                    //primer valor 
+                    Console.WriteLine(" \nIntroduzca un valor:");
+                    contador = Convert.ToDouble(Console.ReadLine());
+                    //bucle calculadora
+                    do
                     {
-                        contador = operador1 + Convert.ToDouble(Console.ReadLine());
+                        Console.WriteLine("Introduzca un operador:");
+                        accion = Convert.ToChar(Console.ReadLine());
+                        if (accion == '+')
+                        {
+                            Console.WriteLine("Introduzca un valor:");
+                            contador += Convert.ToDouble(Console.ReadLine());
+                        }
+                        if (accion == '-')
+                        {
+                            Console.WriteLine("Introduzca un valor:");
+                            contador -= Convert.ToDouble(Console.ReadLine());
+                        }
+                        if (accion == '*')
+                        {
+                            Console.WriteLine("Introduzca un valor:");
+                            contador *= Convert.ToDouble(Console.ReadLine());
+                        }
+                        if (accion == '/')
+                        {
+                            Console.WriteLine("Introduzca un valor:");
+                            contador /= Convert.ToDouble(Console.ReadLine());
+                        }
+                        if (accion == '=')
+                        {
+                            Console.WriteLine("El resultado es {0}", contador);
+                            Console.WriteLine(" \n\nIntroduzca un valor para operar:");
+                            contador = Convert.ToDouble(Console.ReadLine());
+                        }
+                        if (accion == 's')
+                        {
+                            Console.WriteLine("El resultado es {0}", contador);
+                            break;
+                        }
                     }
-                    if (accion == '-')
-                    {
-                        contador = operador1 - Convert.ToDouble(Console.ReadLine());
-                    }
-                    if (accion == '*')
-                    {
-                        contador = operador1 * Convert.ToDouble(Console.ReadLine());
-                    }
-                    if (accion == '/')
-                    {
-                        contador = operador1 / Convert.ToDouble(Console.ReadLine());
-                    }
-                    if (accion == '=')
-                    {
-                        Console.WriteLine("El resultado es {0}", contador);
-                        contador = 0;
-                        Console.WriteLine(" \nIntroduzca un valor para operar:");
-                        operador1 = Convert.ToDouble(Console.ReadLine());
-                    }
-                    if (accion == 's')
-                    {
-                        break;
-                    }
+                    while (accion != 's');
+                    terminar = false;
                 }
-            while (accion != 's');
+                catch (Exception errorEncontrado)
+                {
+                    Console.WriteLine("Ha habido un error: EL dato introducido no es valido", errorEncontrado.Message);
+                }
             }
-            catch(){};
-            Console.WriteLine("Fin del programa");
+            //Cerrar la calculadora
+            Console.WriteLine("FIN DEL PROGRAMA");
         }
     }
 }
