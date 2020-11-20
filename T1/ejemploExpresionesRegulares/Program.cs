@@ -5,14 +5,13 @@ public class Class1
 {
     public static void Main()
     {
-        string pattern = @"\b(\w+?)\s\1\b";
-        string input = "This this is a nice day. What about this? This tastes good. I saw a a dog.";
-        foreach (Match match in Regex.Matches(input, pattern, RegexOptions.IgnoreCase))
-            Console.WriteLine("{0} (duplicates '{1}') at position {2}",
-                              match.Value, match.Groups[1].Value, match.Index);
-
+        //https://docs.microsoft.com/es-es/dotnet/api/system.text.regularexpressions.regex.match?view=net-5.0#System_Text_RegularExpressions_Regex_Match_System_String_System_String_System_Text_RegularExpressions_RegexOptions_System_TimeSpan_
+        //string palabra = "El";
+        //sring pattern = @"\b"+ palabra;t
+        string pattern = @"\bEl\w*\b";
+        string input = "Los elementos en el rio el.";
+        Match m = Regex.Match(input, pattern, RegexOptions.IgnoreCase);
+        if (m.Success)
+            Console.WriteLine("Encontrado '{0}' en la posicion {1}.", m.Value, m.Index);
     }
 }
-// The example displays the following output:
-//       This this (duplicates 'This') at position 0
-//       a a (duplicates 'a') at position 66

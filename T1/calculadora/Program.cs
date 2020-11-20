@@ -23,6 +23,7 @@ namespace calculadora
             Console.WriteLine(" / para realizar la operación división.");
             Console.WriteLine(" = para mostrar el resultado de la operación acumulada y reinicializar el contenido a cero.");
             Console.WriteLine(" s para salir del programa.");
+            //0.0 --> 0,0
             while (terminar)
             {
                 try
@@ -67,7 +68,6 @@ namespace calculadora
                                 Console.WriteLine("--> Operación incorrecta");
                                 break;
                         }
-                        if (accion == 's') { break; };
                     }
                     while (accion != 's');
                     terminar = false;
