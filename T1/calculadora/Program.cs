@@ -35,44 +35,47 @@ namespace calculadora
                     {
                         Console.WriteLine("Introduzca un operador:");
                         accion = Convert.ToChar(Console.ReadLine());
-                        if (accion == '+')
+                        switch (accion)
                         {
-                            Console.WriteLine("Introduzca un valor:");
-                            contador += Convert.ToDouble(Console.ReadLine());
+                            case '+':
+                                Console.WriteLine("Introduzca un valor:");
+                                contador += Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case '-':
+                                Console.WriteLine("Introduzca un valor:");
+                                contador -= Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case '*':
+                                Console.WriteLine("Introduzca un valor:");
+                                contador *= Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case '/':
+                                Console.WriteLine("Introduzca un valor:");
+                                contador /= Convert.ToDouble(Console.ReadLine());
+                                break;
+                            //Contador a 0*. Su valor pasa a ser el proximo valor inicial. 
+                            case '=':
+                                Console.WriteLine("El resultado es {0}", contador);
+                                Console.WriteLine(" \nIntroduzca un valor:");
+                                contador = Convert.ToDouble(Console.ReadLine());
+                                break;
+                            case 's':
+                                Console.WriteLine("El resultado es {0}", contador);
+                                break;
+                            //Operacion incorrecta
+                            default:
+                                Console.WriteLine("--> Operación incorrecta");
+                                break;
                         }
-                        if (accion == '-')
-                        {
-                            Console.WriteLine("Introduzca un valor:");
-                            contador -= Convert.ToDouble(Console.ReadLine());
-                        }
-                        if (accion == '*')
-                        {
-                            Console.WriteLine("Introduzca un valor:");
-                            contador *= Convert.ToDouble(Console.ReadLine());
-                        }
-                        if (accion == '/')
-                        {
-                            Console.WriteLine("Introduzca un valor:");
-                            contador /= Convert.ToDouble(Console.ReadLine());
-                        }
-                        if (accion == '=')
-                        {
-                            Console.WriteLine("El resultado es {0}", contador);
-                            Console.WriteLine(" \n\nIntroduzca un valor para operar:");
-                            contador = Convert.ToDouble(Console.ReadLine());
-                        }
-                        if (accion == 's')
-                        {
-                            Console.WriteLine("El resultado es {0}", contador);
-                            break;
-                        }
+                        if (accion == 's') { break; };
                     }
                     while (accion != 's');
                     terminar = false;
                 }
+                //numero incorrecto
                 catch (Exception errorEncontrado)
                 {
-                    Console.WriteLine("Ha habido un error: EL dato introducido no es valido", errorEncontrado.Message);
+                    Console.WriteLine("--> Número incorrecto", errorEncontrado.Message);
                 }
             }
             //Cerrar la calculadora
