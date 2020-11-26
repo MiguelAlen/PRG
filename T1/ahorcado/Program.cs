@@ -53,15 +53,17 @@ namespace ahorcado
                     }
                 }
                 //pedir letra al usuario y comprar
+                //https://docs.microsoft.com/es-es/dotnet/csharp/how-to/modify-string-contents
                 Console.Write("Letra:");
                 letra = Convert.ToChar(Console.ReadLine());
                 for (int i = 0; i < palabra1.Length; i++)
                 {
                     if (palabra1[i] == letra)
                     {
-                        palabra2.Replace(palabra2[i], letra);
+                        palabra2 = palabra2.Replace(palabra2[i], letra);
                         mostrar = false;
                         Console.WriteLine("{0}", palabra2);
+                        break;
                     }
                     else
                     {
