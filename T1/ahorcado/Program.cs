@@ -38,8 +38,8 @@ namespace ahorcado
                 if (errores == 1) { dibujo[1, 4] = 'o'; }
                 if (errores == 2) { dibujo[2, 3] = '/'; }
                 if (errores == 3) { dibujo[2, 4] = '|'; }
-                if (errores == 4) { dibujo[2, 5] = '/'; }
-                if (errores == 5) { dibujo[3, 3] = '\\'; }
+                if (errores == 4) { dibujo[2, 5] = '\\'; }
+                if (errores == 5) { dibujo[3, 3] = '/'; }
                 //mostrar dibujo
                 if (mostrar == true)
                 {
@@ -75,7 +75,7 @@ namespace ahorcado
             }
             if (errores == 6)
             {
-                dibujo[3, 5] = '/';
+                dibujo[3, 5] = '\\';
                 for (int i = 0; i < 6; i++)
                 {
                     for (int j = 0; j < 8; j++)
