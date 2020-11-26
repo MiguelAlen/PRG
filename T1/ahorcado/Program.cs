@@ -11,8 +11,8 @@ namespace ahorcado
     {
         static void Main(string[] args)
         {
-            string palabra1 = "programación";
-            string palabra2 = "____________";
+            char[] palabra1 = {'p', 'r', 'o', 'g', 'r', 'a', 'm', 'a', 'c', 'i', 'o', 'n'};
+            char[] palabra2 = {'_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'};
             int errores = 0;
             char letra;
             char[,] dibujo = new char[6, 8];
@@ -52,28 +52,32 @@ namespace ahorcado
                         Console.WriteLine();
                     }
                 }
-                //pedir letra al usuario y comprar
-                //https://docs.microsoft.com/es-es/dotnet/csharp/how-to/modify-string-contents
-                Console.Write("Letra:");
+                //buscar letra
+                int contador = 0;
+                Console.WriteLine("Letra:");
                 letra = Convert.ToChar(Console.ReadLine());
                 for (int i = 0; i < palabra1.Length; i++)
                 {
                     if (palabra1[i] == letra)
                     {
-                        palabra2 = palabra2.Replace(palabra2[i], letra);
+                        palabra2[i] = palabra1[i];
                         mostrar = false;
-                        Console.WriteLine("{0}", palabra2);
-                        break;
+                        contador++;
                     }
-                    else
+                    if (contador == 0 && i == palabra2.Length-1)
                     {
-                        if (i == palabra1.Length - 1)
+                        errores++;
+                        mostrar = true;
+                    }
+                    if (contador > 0 && i == palabra2.Length-1) 
+                    {
+                        for (int j = 0; j < palabra2.Length; j++)
                         {
-                            errores++;
-                            mostrar = true;
+                            Console.Write("{0}", palabra2[j]);
                         }
                     }
                 }
+                Console.WriteLine("");
             }
             if (errores == 6)
             {
