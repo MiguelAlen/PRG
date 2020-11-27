@@ -14,6 +14,7 @@ namespace ahorcado
             char[] palabra1 = {'p', 'r', 'o', 'g', 'r', 'a', 'm', 'a', 'c', 'i', 'o', 'n'};
             char[] palabra2 = {'_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_'};
             int errores = 0;
+            string str2 = "";
             char letra;
             char[,] dibujo = new char[6, 8];
             for (int i = 0; i < 6; i++)
@@ -34,50 +35,62 @@ namespace ahorcado
             //6 intentos
             while (errores < 6)
             {
-                //errores
-                if (errores == 1) { dibujo[1, 4] = 'o'; }
-                if (errores == 2) { dibujo[2, 3] = '/'; }
-                if (errores == 3) { dibujo[2, 4] = '|'; }
-                if (errores == 4) { dibujo[2, 5] = '\\'; }
-                if (errores == 5) { dibujo[3, 3] = '/'; }
-                //mostrar dibujo
-                if (mostrar == true)
+                try
                 {
-                    for (int i = 0; i < 6; i++)
+
+                    //acierto
+                    str2 = new string(palabra2);
+                    if (str2 == "programacion") { break; }
+                    //errores
+                    if (errores == 1) { dibujo[1, 4] = 'o'; }
+                    if (errores == 2) { dibujo[2, 3] = '/'; }
+                    if (errores == 3) { dibujo[2, 4] = '|'; }
+                    if (errores == 4) { dibujo[2, 5] = '\\'; }
+                    if (errores == 5) { dibujo[3, 3] = '/'; }
+                    //mostrar dibujo
+                    if (mostrar == true)
                     {
-                        for (int j = 0; j < 8; j++)
+                        for (int i = 0; i < 6; i++)
                         {
-                            Console.Write(dibujo[i, j].ToString());
-                        }
-                        Console.WriteLine();
-                    }
-                }
-                //buscar letra
-                int contador = 0;
-                Console.WriteLine("Letra:");
-                letra = Convert.ToChar(Console.ReadLine());
-                for (int i = 0; i < palabra1.Length; i++)
-                {
-                    if (palabra1[i] == letra)
-                    {
-                        palabra2[i] = palabra1[i];
-                        mostrar = false;
-                        contador++;
-                    }
-                    if (contador == 0 && i == palabra2.Length-1)
-                    {
-                        errores++;
-                        mostrar = true;
-                    }
-                    if (contador > 0 && i == palabra2.Length-1) 
-                    {
-                        for (int j = 0; j < palabra2.Length; j++)
-                        {
-                            Console.Write("{0}", palabra2[j]);
+                            for (int j = 0; j < 8; j++)
+                            {
+                                Console.Write(dibujo[i, j].ToString());
+                            }
+                            Console.WriteLine();
                         }
                     }
+                    //buscar letra
+                    int contador = 0;
+                    Console.WriteLine("Letra:");
+                    letra = Convert.ToChar(Console.ReadLine());
+                    for (int i = 0; i < palabra1.Length; i++)
+                    {
+                        if (palabra1[i] == letra)
+                        {
+                            palabra2[i] = palabra1[i];
+                            mostrar = false;
+                            contador++;
+                        }
+                        if (contador == 0 && i == palabra2.Length - 1)
+                        {
+                            errores++;
+                            mostrar = true;
+                        }
+                        if (contador > 0 && i == palabra2.Length - 1)
+                        {
+                            for (int j = 0; j < palabra2.Length; j++)
+                            {
+                                Console.Write("{0}", palabra2[j]);
+                            }
+                        }
+                    }
+                    Console.WriteLine("");
                 }
-                Console.WriteLine("");
+                catch (Exception errorEncontrado)
+                {
+                    Console.WriteLine("Introduce una letra valida",
+                    errorEncontrado.Message);
+                }
             }
             if (errores == 6)
             {
@@ -91,6 +104,10 @@ namespace ahorcado
                     Console.WriteLine();
                 }
                 Console.WriteLine("R.I.P.La palabra era programación.");
+            }
+            if (str2 == "programacion")
+            {
+                Console.WriteLine("Enhorabuena, has ganado!!!");
             }
         }
     }
