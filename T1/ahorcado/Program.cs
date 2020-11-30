@@ -72,7 +72,7 @@ namespace ahorcado
                     //introducir y buscar letra. Si no se introduce un char letra, pedir de nuevo
                     Console.WriteLine("Introduce una letra:");
                     letra = Convert.ToChar(Console.ReadLine());
-                    while (bool IsLetter(letra) == false)
+                    while (Char.IsLetter(letra) == false)
                     {
                         Console.WriteLine("Caracter no valido. Introduce una letra:");
                         letra = Convert.ToChar(Console.ReadLine());
