@@ -12,6 +12,7 @@ namespace ahorcado
         static void Main(string[] args)
         {
             // Palabra del ahorcado puesta en array, y array de '_' con tamaño de la palabra.
+            Console.WriteLine("Escoje una palabra:");
             string cadena = Convert.ToString(Console.ReadLine());
             char[] palabra1 = cadena.ToCharArray();
             char[] palabra2 = new char[cadena.Length];
