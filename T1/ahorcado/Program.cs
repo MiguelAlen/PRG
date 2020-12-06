@@ -104,6 +104,7 @@ namespace ahorcado
                 //si no se introduce una letra, avisar y pedirla de nuevo
                 catch (Exception errorEncontrado)
                 {
+                    mostrar = false;
                     Console.WriteLine("Caracter no valido. Introduce una letra:",
                     errorEncontrado.Message);
                 }
