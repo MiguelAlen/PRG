@@ -4,15 +4,15 @@ namespace ej5._5._6
 {
     class Program
     {
-        public static string Triangulo(int n, char letra)
+        public static void Triangulo(int n, char letra)
         {
-            string triangulo = "";
-            for (int i = 0; i < n; i++)
+            for (int i = 1; i <= n; i++)
             {
-                for (int f = 4; f > 0; f--)
+                for (int f = i; f > 0; f--)
                 {
-                    triangulo + ("{0}", letra);
+                    Console.Write("{0}", letra);
                 }
+                Console.WriteLine("");
             }
         }
         public static void Main()
@@ -21,7 +21,8 @@ namespace ej5._5._6
             Console.WriteLine("El ancho del triangulo: ");
             ancho = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("La letra que lo compone: ");
-            Console.WriteLine("{0}", Triangulo(ancho, letra));
+            letra = Convert.ToChar(Console.ReadLine());
+            Triangulo(ancho, letra);
         }
     }
 }
