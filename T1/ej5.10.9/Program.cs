@@ -4,29 +4,32 @@ namespace ej5._10._9
 {
     class Program
     {
+        
         public static int subcadenaEn(string cadena, string subCadena)
         {
-            if (subCadena.Length > cadena.Length) { return 0; }
-            string s = "";
             int contador = 0;
-            if (cadena.Contains(subCadena)) { contador++; }
-            else {
-                for (int i = 0; i < cadena.Length; i++)
-                {
-                    for (int j = 0; j < subCadena.Length; j++)
-                    {
-                        if (cadena[i] == subCadena[j]) { s += cadena[i]; }
-                    }
-                }
-                for (int i = 0; i < s.Length - 1; i++)
-                {
-                    if (s[i] == s[i + 1])
-                    {
-                        contador += 2;
-                    }
-                }
+            string s;
+            if (subCadena.Length > cadena.Length) { return 0; }
+            if (cadena == subCadena) { return 1; }
+            else { if (cadena.Length == subCadena.Length) { return 0; } }
+
+            int i = 0;
+            while (i < cadena.Length)
+            {
+                s = cadena.Remove(i, 1); 
+                contador += subcadenaEn(s,subCadena);
+                i++;
             }
             return contador;
+        }
+        public static int startSubcadenaEn(string cadena, string subCadena)
+        {
+            int contador = 0;
+            contador += subcadenaEn(cadena, subCadena);
+            int dobles = cadena.Length - subCadena.Length- 1;
+
+
+             return contador / (2 * dobles);
         }
         public static void Main()
         {
@@ -34,7 +37,7 @@ namespace ej5._10._9
             string cadena = Convert.ToString(Console.ReadLine());
             Console.WriteLine("Introduce una subcadena");
             string subCadena = Convert.ToString(Console.ReadLine());
-            Console.WriteLine("{0}", subcadenaEn(cadena, subCadena));
+            Console.WriteLine("{0}", startSubcadenaEn(cadena, subCadena));
         }
     }
 }
