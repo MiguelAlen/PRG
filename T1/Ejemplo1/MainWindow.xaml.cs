@@ -26,19 +26,25 @@ namespace Ejemplo1
         {
             InitializeComponent();
         }
-
-        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             var result = MessageBox.Show("Salir?",
                                         "Confirmación",
                                         MessageBoxButton.YesNo,
                                         MessageBoxImage.Question);
-
-            if(result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.No)
             {
-                MessageBox.Show("Chaooo " + TxtNombre.Text);
-                Close();
+                e.Cancel = true;
             }
+        }
+
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            
+                if(cbEstudias.IsChecked == true)
+               
+                Close();
+            
             
         }
 
@@ -50,6 +56,37 @@ namespace Ejemplo1
         private void TxtNombre_GotFocus_1(object sender, RoutedEventArgs e)
         {
             TxtNombre.Background = Brushes.White;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void cbProvincias_DropDownClosed(object sender, EventArgs e)
+        {
+            MessageBox.Show(cbProvincias.Text +
+                            " - SelectedIndex: "
+                             + Convert.ToString(cbProvincias.SelectedIndex));
+        }
+
+        private void btProvincias_Click(object sender, RoutedEventArgs e)
+        {
+            if(cbProvincias.SelectedIndex == -1)
+            {
+                MessageBox.Show(cbProvincias.Text);
+            }
+        }
+
+        private void rdVehiculoSI_Checked(object sender, RoutedEventArgs e)
+        {
+            cbTipoVehiculo.IsEnabled = true;
+        }
+
+        private void rdVehiculoNo_Checked(object sender, RoutedEventArgs e)
+        {
+            cbTipoVehiculo.SelectedIndex = -1;
+            cbTipoVehiculo.IsEnabled = false;
         }
     }
 }

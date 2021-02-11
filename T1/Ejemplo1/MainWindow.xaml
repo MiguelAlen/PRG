@@ -5,11 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Ejemplo1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid>
         <Button x:Name="BtnSalir" Content="X" HorizontalAlignment="Left" Margin="732,10,0,0" VerticalAlignment="Top" Width="50" Click="BtnSalir_Click" FontSize="20" FontWeight="Bold" Background="#FFD35656" Cursor="Hand"/>
         <TextBox x:Name="TxtNombre" HorizontalAlignment="Left" Height="23" Margin="10,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFEA6868" GotFocus="TxtNombre_GotFocus_1"/>
         <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbEstudias" Content="Estudias?" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="27" Width="80"/>
+        <CheckBox x:Name="cbTrabajas" Content="Trabajas?" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbMayor18" Content="Mayor de 18" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" GroupName="Edad"/>
+        <RadioButton x:Name="rbMenor18" Content="Menor de 18" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" GroupName="Edad"/>
+        <RadioButton x:Name="rbMoto" Content="Moto" HorizontalAlignment="Left" Margin="130,169,0,0" VerticalAlignment="Top" GroupName="Vehiculo"/>
+        <RadioButton x:Name="rbCoche" Content="Coche" HorizontalAlignment="Left" Margin="130,189,0,0" VerticalAlignment="Top" GroupName="Vehiculo"/>
+        <ListBox x:Name="lbProvincias" HorizontalAlignment="Left" Height="100" Margin="284,49,0,0" VerticalAlignment="Top" Width="100">
+            <ListBoxItem Content="Alicante"/>
+            <ListBoxItem Content="Castellon"/>
+            <ListBoxItem Content="Valencia"/>
+        </ListBox>
+        <ComboBox x:Name="cbProvincias" HorizontalAlignment="Left" Margin="284,169,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged" DropDownClosed="cbProvincias_DropDownClosed">
+            <ComboBoxItem Content="Alicante"/>
+            <ComboBoxItem Content="Almeria"/>
+            <ComboBoxItem Content="Alicante"/>
+            <ComboBoxItem Content="Badajoz"/>
+        </ComboBox>
+        <Button x:Name="btProvincias" Content="Provincias" HorizontalAlignment="Left" Margin="431,169,0,0" VerticalAlignment="Top" Width="75" Click="btProvincias_Click"/>
+        <RadioButton x:Name="rdVehiculoNo" Content="No" HorizontalAlignment="Left" Margin="11,253,0,0" VerticalAlignment="Top" GroupName="vehiculosino" Checked="rdVehiculoNo_Checked"/>
+        <Label x:Name="lblVehiculo" Content="Vehiculo propio?" HorizontalAlignment="Left" Margin="10,222,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rdVehiculoSI" Content="Si" HorizontalAlignment="Left" Margin="61,253,0,0" VerticalAlignment="Top" GroupName="vehiculosino" Checked="rdVehiculoSI_Checked"/>
+        <ComboBox x:Name="cbTipoVehiculo" HorizontalAlignment="Left" Margin="11,284,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False">
+            <ComboBoxItem Content="Coche"/>
+            <ComboBoxItem Content="Moto"/>
+            <ComboBoxItem Content="Otro"/>
+        </ComboBox>
 
     </Grid>
 </Window>
