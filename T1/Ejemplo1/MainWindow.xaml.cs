@@ -40,25 +40,10 @@ namespace Ejemplo1
 
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
-            
-                if(cbEstudias.IsChecked == true)
-               
-                Close();
-            
-            
+            //if(cbEstudias.IsChecked == true)
+            Close();
         }
-
-        private void TxtNombre_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TxtNombre_GotFocus_1(object sender, RoutedEventArgs e)
-        {
-            TxtNombre.Background = Brushes.White;
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /*private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
@@ -76,7 +61,7 @@ namespace Ejemplo1
             {
                 MessageBox.Show(cbProvincias.Text);
             }
-        }
+        }*/
 
         private void rdVehiculoSI_Checked(object sender, RoutedEventArgs e)
         {
@@ -88,5 +73,68 @@ namespace Ejemplo1
             cbTipoVehiculo.SelectedIndex = -1;
             cbTipoVehiculo.IsEnabled = false;
         }
-    }
+
+        private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+
+            if (txtNombre.Text != "") 
+            {
+                txtNombre.Background = Brushes.White; 
+            }
+            else 
+            {
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (Brush)converter.ConvertFromString("#FFE68080");
+                txtNombre.Background = brush; 
+            }
+        }
+
+        private void txtApellido1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtApellido1.Text != "")
+            {
+                txtApellido1.Background = Brushes.White;
+            }
+            else
+            {
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (Brush)converter.ConvertFromString("#FFE68080");
+                txtApellido1.Background = brush;
+            }
+        }
+
+        private void txtTelefono1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtTelefono1.Text != "")
+            {
+                txtTelefono1.Background = Brushes.White;
+            }
+            else
+            {
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (Brush)converter.ConvertFromString("#FFE68080");
+                txtTelefono1.Background = brush;
+            }
+        }
+
+        private void txtTelefono2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtTelefono2.Text != "")
+            {
+                txtTelefono2.Background = Brushes.White;
+            }
+            else
+            {
+                var converter = new System.Windows.Media.BrushConverter();
+                var brush = (Brush)converter.ConvertFromString("#FFE68080");
+                txtTelefono2.Background = brush;
+            }
+        }
+    }   
 }
