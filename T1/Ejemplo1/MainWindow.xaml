@@ -8,25 +8,20 @@
         Title="MainWindow" Height="450" Width="800" Closing="Window_Closing">
     <Grid Margin="0,0,0,-1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="169*"/>
-            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="507*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="260*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="BtnSalir" Content="X" HorizontalAlignment="Left" Margin="224.86,10,0,0" VerticalAlignment="Top" Width="50" Click="BtnSalir_Click" FontSize="20" FontWeight="Bold" Background="#FFD35656" Cursor="Hand" Grid.Column="1"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="32" MaxLines="1" GotFocus="txtNombre_GotFocus" TextChanged="txtNombre_TextChanged"/>
-        <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdVehiculoNo" Content="No" HorizontalAlignment="Left" Margin="49.86,118,0,0" VerticalAlignment="Top" GroupName="vehiculosino" Checked="rdVehiculoNo_Checked" Grid.Column="1"/>
-        <Label x:Name="lblVehiculo" Content="Vehiculo propio?" HorizontalAlignment="Left" Margin="48.86,87,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton x:Name="rdVehiculoSI" Content="Si" HorizontalAlignment="Left" Margin="99.86,118,0,0" VerticalAlignment="Top" GroupName="vehiculosino" Checked="rdVehiculoSI_Checked" Grid.Column="1"/>
-        <ComboBox x:Name="cbTipoVehiculo" HorizontalAlignment="Left" Margin="49.86,149,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False" Grid.Column="1">
-            <ComboBoxItem Content="Coche"/>
-            <ComboBoxItem Content="Moto"/>
-            <ComboBoxItem Content="Otro"/>
-        </ComboBox>
+        <Button x:Name="BtnSalir" Content="Cancelar" HorizontalAlignment="Left" Margin="17,218,0,0" VerticalAlignment="Top" Width="64" Click="BtnSalir_Click" Background="White" Cursor="Hand" Height="30" Grid.Column="2"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="32" MaxLines="1" TextChanged="txtNombre_TextChanged"/>
+        <Label x:Name="lblNombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" Height="26" Width="54"/>
+        <RadioButton x:Name="rdCliente" Content="Cliente" HorizontalAlignment="Left" Margin="415,61,0,0" VerticalAlignment="Top" GroupName="clienteDistribuidor" Height="15" Width="64" RenderTransformOrigin="-1.84,-2.645" Checked="rdCliente_Checked"/>
+        <RadioButton x:Name="rdDistribuidor" Content="Distribuidor" HorizontalAlignment="Left" Margin="484,61,0,0" VerticalAlignment="Top" GroupName="clienteDistribuidor" Height="15" Width="91" RenderTransformOrigin="-2.984,-3.071" Grid.ColumnSpan="3" Checked="rdDistribuidor_Checked"/>
         <TextBox x:Name="txtApellido1" HorizontalAlignment="Left" Height="23" Margin="11,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="32" MaxLines="1" TextChanged="txtApellido1_TextChanged"/>
-        <TextBox x:Name="txtApellido2" HorizontalAlignment="Left" Height="23" Margin="136,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFB7E4E2" MaxLength="32" MaxLines="1"/>
-        <Label x:Name="lblApellido1" Content="Primer Apellido" HorizontalAlignment="Left" Margin="11,96,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblApellido2" Content="Segundo Apellido" HorizontalAlignment="Left" Margin="136,96,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblAdvert" Content="**Los campos en rojo son requeridos para enviar el formulario!**" HorizontalAlignment="Left" Margin="11,23,0,0" VerticalAlignment="Top" Width="393" Background="White" Foreground="#FFC50000" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtApellido2" HorizontalAlignment="Left" Height="23" Margin="136,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFB7E4E2" MaxLength="32" MaxLines="1" TextChanged="txtApellido2_TextChanged"/>
+        <Label x:Name="lblApellido1" Content="Primer Apellido" HorizontalAlignment="Left" Margin="11,96,0,0" VerticalAlignment="Top" Height="26" Width="92"/>
+        <Label x:Name="lblApellido2" Content="Segundo Apellido" HorizontalAlignment="Left" Margin="136,96,0,0" VerticalAlignment="Top" Height="26" Width="105"/>
+        <Label x:Name="lblAdvert" Content="**Los campos en rojo son requeridos para enviar el formulario!**" HorizontalAlignment="Left" Margin="11,23,0,0" VerticalAlignment="Top" Width="393" Background="White" Foreground="#FFC50000" RenderTransformOrigin="0.5,0.5" Height="26">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,16 +31,24 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="lblTelefono1" Content="Telefono1" HorizontalAlignment="Left" Margin="11,145,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblTelefono2" Content="Telefono2" HorizontalAlignment="Left" Margin="136,145,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTelefono1" Content="Telefono1" HorizontalAlignment="Left" Margin="11,145,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
+        <Label x:Name="lblTelefono2" Content="Telefono2" HorizontalAlignment="Left" Margin="136,145,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
         <TextBox x:Name="txtTelefono2" HorizontalAlignment="Left" Height="23" Margin="136,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFB7E4E2" MaxLength="32" MaxLines="1" TextChanged="txtTelefono2_TextChanged"/>
         <TextBox x:Name="txtTelefono1" HorizontalAlignment="Left" Height="23" Margin="10,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="31" MaxLines="1" TextChanged="txtTelefono1_TextChanged"/>
-        <Label x:Name="lblCorreo" Content="Correo Electrónico" HorizontalAlignment="Left" Margin="11,199,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="11,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1"/>
-        <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="11,253,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="11,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1"/>
-        <TextBox x:Name="txtCp" HorizontalAlignment="Left" Height="23" Margin="261,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="31" MaxLines="1"/>
-        <Label x:Name="lblCp" Content="Código Postal" HorizontalAlignment="Left" Margin="261,253,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblCorreo" Content="Correo Electrónico" HorizontalAlignment="Left" Margin="11,199,0,0" VerticalAlignment="Top" Height="26" Width="108"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="11,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1" TextChanged="txtCorreo_TextChanged"/>
+        <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="11,253,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
+        <TextBox x:Name="txtDireccion" HorizontalAlignment="Left" Height="23" Margin="11,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1" TextChanged="txtDireccion_TextChanged"/>
+        <TextBox x:Name="txtCp" HorizontalAlignment="Left" Height="23" Margin="261,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="31" MaxLines="1" TextChanged="txtCp_TextChanged"/>
+        <Label x:Name="lblCp" Content="Código Postal" HorizontalAlignment="Left" Margin="261,253,0,0" VerticalAlignment="Top" Height="26" Width="83"/>
+        <Label x:Name="lblPoblacion" Content="Población" HorizontalAlignment="Left" Margin="11,307,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPoblacion" HorizontalAlignment="Left" Height="23" Margin="10,333,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1" TextChanged="txtPoblacion_TextChanged"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="325" Margin="399,47,0,0" VerticalAlignment="Top" Width="1"/>
+        <Label x:Name="lblProvincia" Content="Provincia" HorizontalAlignment="Left" Margin="415,81,0,0" VerticalAlignment="Top" Width="80"/>
+        <ComboBox x:Name="cbProvincia" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="415,107,0,0" VerticalAlignment="Top" Width="160" IsEnabled="False">
+            <ListBox Height="100" Width="100"/>
+        </ComboBox>
+        <Button x:Name="BtnEnviar" Content="Enviar Formulario" HorizontalAlignment="Left" Margin="415,218,0,0" VerticalAlignment="Top" Width="129" Click="BtnEnviar_Click" Background="White" Cursor="Hand" Height="30" Grid.ColumnSpan="3" IsEnabled="False" LayoutUpdated="BtnEnviar_LayoutUpdated"/>
 
     </Grid>
 </Window>
