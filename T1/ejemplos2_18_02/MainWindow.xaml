@@ -1,0 +1,106 @@
+﻿<Window x:Class="ejemplos2_18_02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ejemplos2_18_02"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Menu x:Name="mPrincipal" HorizontalAlignment="Left" Height="39" Margin="0,-3,0,0" VerticalAlignment="Top" Width="790" RenderTransformOrigin="0.5,0.5">
+            <Menu.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.283"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Menu.RenderTransform>
+            <MenuItem x:Name="mArchivo" Header="_Archivo" Height="39" Width="60">
+                <MenuItem x:Name="mArchivoNuevo" Header="Nuevo" HorizontalAlignment="Left" Height="30" Width="130" Click="mArchivoNuevo_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\Alentado\PRG\Icons\nuevo.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator HorizontalAlignment="Left" Height="1" Width="140" Margin="-2,0,0,0"/>
+                <MenuItem x:Name="mArchivoGuardar" Header="Guardar" HorizontalAlignment="Left" Height="30" Width="130" Click="mArchivoGuardar_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\Alentado\PRG\Icons\guardar.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator HorizontalAlignment="Left" Height="1" Width="140" Margin="-2,0,0,0"/>
+                <MenuItem x:Name="mArchivoSalir" Header="Salir" HorizontalAlignment="Left" Height="30" Width="130" Margin="0,0,-2,0" Click="mArchivoSalir_Click">
+                    <MenuItem.Icon>
+                        <Image Source="D:\Alentado\PRG\Icons\close.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem x:Name="mEditar" Header="_Editar" Height="39" Width="49">
+                <MenuItem x:Name="mEditarReemplazar" Header="Reemplazar..." HorizontalAlignment="Left" Height="30" Width="148" Click="mEditarReemplazar_Click" Margin="0,0,-8,0"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="140" Margin="-2,0,0,0"/>
+                <MenuItem x:Name="mEditarBuscar" Header="Buscar" HorizontalAlignment="Left" Height="30" Width="146" Margin="0,0,-6,0" Click="mEditarBuscar_Click"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="150"/>
+                <MenuItem x:Name="mEditarDeshacer" Header="Deshacer" HorizontalAlignment="Left" Height="30" Width="140"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="150"/>
+                <MenuItem x:Name="mEditarRehacer" Header="Rehacer" HorizontalAlignment="Left" Height="30" Width="140"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="150"/>
+                <MenuItem x:Name="mEditarCopiar" Header="Copiar" HorizontalAlignment="Left" Height="30" Width="140">
+                    <MenuItem.Icon>
+                        <Image Source="D:\Alentado\PRG\Icons\copiar.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator HorizontalAlignment="Left" Height="1" Width="150"/>
+                <MenuItem x:Name="mEditarPegar" Header="Pegar" HorizontalAlignment="Left" Height="30" Width="140"/>
+                <Separator HorizontalAlignment="Left" Height="1" Width="150"/>
+                <MenuItem x:Name="mEditarCortar" Header="Cortar" HorizontalAlignment="Left" Height="30" Width="140"/>
+            </MenuItem>
+
+        </Menu>
+        <TabControl x:Name="tcCliente" HorizontalAlignment="Left" Height="121" Margin="261,144,0,0" VerticalAlignment="Top" Width="329">
+            <TabItem x:Name="tiCliente" Header="Cliente">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="txtCliente" HorizontalAlignment="Left" Height="23" Margin="80,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Label x:Name="lbCliente" Content="Cliente" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Grid.ContextMenu>
+
+                        <ContextMenu>
+                            <MenuItem Name="mItem1" Header="Menu Item 1" Click="mItem1_Click" />
+                            <MenuItem Name="mItem2" Header="Menu Item 2" Click="mItem2_Click"/>
+                            <Separator />
+                            <MenuItem Name="mItem3" Header="Menu Item 3" Click="mItem3_Click" />
+                        </ContextMenu>
+
+                    </Grid.ContextMenu>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tiDireccion" Header="Direccion">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="134*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="139*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtDireccion" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" Margin="75,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tiTelefono" Header="Telefonos" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="62" Margin="-2,0,0,0">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-2,0">
+                    <Label x:Name="lblTelefono" Content="Teléfono" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtTelefono" HorizontalAlignment="Left" Height="23" Margin="70,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54" Margin="-5,0,0,0">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <ProgressBar x:Name="pbFacturacion" HorizontalAlignment="Left" Height="33" Margin="261,85,0,0" VerticalAlignment="Top" Width="329"/>
+        <Button x:Name="btnFacturar" Content="Facturar" HorizontalAlignment="Left" Margin="261,60,0,0" VerticalAlignment="Top" Width="75" Click="btnFacturar_Click"/>
+
+    </Grid>
+</Window>
