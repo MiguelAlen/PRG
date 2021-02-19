@@ -121,10 +121,20 @@ namespace Ejemplo1
                 var brush = (Brush)converter.ConvertFromString("#FFE68080");
                 txtTelefono1.Background = brush;
             }
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
         }
 
         private void txtTelefono2_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (System.Text.RegularExpressions.Regex.IsMatch(textBox1.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numbers.");
+                textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+            }
             if (txtTelefono2.Text != "")
             {
                 txtTelefono2.Background = Brushes.White;
@@ -136,5 +146,6 @@ namespace Ejemplo1
                 txtTelefono2.Background = brush;
             }
         }
+
     }   
 }
