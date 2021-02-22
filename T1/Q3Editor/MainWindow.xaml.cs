@@ -20,6 +20,7 @@ namespace Q3Editor
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool guardado = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +33,23 @@ namespace Q3Editor
 
         private void mArchivoNuevo_Click(object sender, RoutedEventArgs e)
         {
+            Guardar();
             txtMain.Clear();
+        }
+        private void Guardar()
+        {
+            if (txtMain.Text != "" && !guardado)
+            {
+                if (MessageBox.Show("¿Quiere guardar el contenido?", 
+                                                    "Confirmación.",
+                                                    MessageBoxButton.YesNo,
+                                                    MessageBoxImage.Question)
+                        == MessageBoxResult.Yes)
+                {
+                    MessageBox.Show("Guardando...");
+                    guardado = true;
+                }
+            }
         }
     }
 }
