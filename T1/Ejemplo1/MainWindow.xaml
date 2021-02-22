@@ -33,8 +33,8 @@
         </Label>
         <Label x:Name="lblTelefono1" Content="Telefono1" HorizontalAlignment="Left" Margin="11,145,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
         <Label x:Name="lblTelefono2" Content="Telefono2" HorizontalAlignment="Left" Margin="136,145,0,0" VerticalAlignment="Top" Height="26" Width="62"/>
-        <TextBox x:Name="txtTelefono2" HorizontalAlignment="Left" Height="23" Margin="136,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFB7E4E2" MaxLength="32" MaxLines="1" TextChanged="txtTelefono2_TextChanged"/>
-        <TextBox x:Name="txtTelefono1" HorizontalAlignment="Left" Height="23" Margin="10,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="31" MaxLines="1" TextChanged="txtTelefono1_TextChanged"/>
+        <TextBox x:Name="txtTelefono2" HorizontalAlignment="Left" Height="23" Margin="136,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFB7E4E2" MaxLength="32" MaxLines="1" TextChanged="txtTelefono2_TextChanged" UndoLimit="9"/>
+        <TextBox x:Name="txtTelefono1" HorizontalAlignment="Left" Height="23" Margin="10,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Background="#FFE68080" MaxLength="31" MaxLines="1" TextChanged="txtTelefono1_TextChanged" UndoLimit="9"/>
         <Label x:Name="lblCorreo" Content="Correo Electrónico" HorizontalAlignment="Left" Margin="11,199,0,0" VerticalAlignment="Top" Height="26" Width="108"/>
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="11,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245" Background="#FFE68080" MaxLength="100" MaxLines="1" TextChanged="txtCorreo_TextChanged"/>
         <Label x:Name="lblDireccion" Content="Dirección" HorizontalAlignment="Left" Margin="11,253,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
