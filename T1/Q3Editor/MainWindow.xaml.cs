@@ -70,7 +70,10 @@ namespace Q3Editor
         private void mArchivoNuevo_Click(object sender, RoutedEventArgs e)
         {
             Guardar();
+
             txtTexto.Clear();
+
+            panelNombre.Content = "<Sin Nombre>";
         }
         
         private void mArchivoAbrir_Click(object sender, RoutedEventArgs e)

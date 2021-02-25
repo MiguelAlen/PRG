@@ -13,13 +13,13 @@
         </Grid.RowDefinitions>
         <Menu x:Name="menu" Height="24" VerticalAlignment="Top">
             <MenuItem x:Name="mArchivo" Header="_Archivo" Height="24" Width="58">
-                <MenuItem x:Name="mArchivoNuevo" Header="_Nuevo" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoNuevo_Click"/>
+                <MenuItem x:Name="mArchivoNuevo" Header="_Nuevo" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoNuevo_Click" InputGestureText="Ctrl_N"/>
                 <Separator x:Name="mArchivoSeparador1" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mArchivoAbrir" Header="_Abrir..." HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoAbrir_Click"/>
+                <MenuItem x:Name="mArchivoAbrir" Header="_Abrir..." HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoAbrir_Click" InputGestureText="Ctrl_O"/>
                 <Separator x:Name="mArchivoSeparador2" HorizontalAlignment="Left" Height="0" Width="180"/>
                 <MenuItem x:Name="mArchivoCerrar" Header="_Cerrar" HorizontalAlignment="Left" Height="24" Width="180"/>
                 <Separator x:Name="mArchivoSeparador3" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mArchivoGuardar" Header="_Guardar" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoGuardar_Click"/>
+                <MenuItem x:Name="mArchivoGuardar" Header="_Guardar" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoGuardar_Click" InputGestureText="Ctrl_S"/>
                 <Separator x:Name="mArchivoSeparador4" HorizontalAlignment="Left" Height="0" Width="180"/>
                 <MenuItem x:Name="mArchivoGuardarComo" Header="G_uardarComo..." HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoGuardarComo_Click"/>
                 <Separator x:Name="mArchivoSeparador5" HorizontalAlignment="Left" Height="0" Width="180"/>
