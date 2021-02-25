@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Q3Editor"
         mc:Ignorable="d"
-        Title="Q3 Editor" Height="450" Width="800" WindowState="Maximized">
+        Title="Q3 Editor" Height="450" Width="800" WindowState="Maximized" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="417*"/>
@@ -15,13 +15,13 @@
             <MenuItem x:Name="mArchivo" Header="_Archivo" Height="24" Width="58">
                 <MenuItem x:Name="mArchivoNuevo" Header="_Nuevo" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoNuevo_Click"/>
                 <Separator x:Name="mArchivoSeparador1" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mArchivoAbrir" Header="_Abrir..." HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mArchivoAbrir" Header="_Abrir..." HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoAbrir_Click"/>
                 <Separator x:Name="mArchivoSeparador2" HorizontalAlignment="Left" Height="0" Width="180"/>
                 <MenuItem x:Name="mArchivoCerrar" Header="_Cerrar" HorizontalAlignment="Left" Height="24" Width="180"/>
                 <Separator x:Name="mArchivoSeparador3" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mArchivoGuardar" Header="_Guardar" HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mArchivoGuardar" Header="_Guardar" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoGuardar_Click"/>
                 <Separator x:Name="mArchivoSeparador4" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mArchivoGuardarComo" Header="G_uardarComo..." HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mArchivoGuardarComo" Header="G_uardarComo..." HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoGuardarComo_Click"/>
                 <Separator x:Name="mArchivoSeparador5" HorizontalAlignment="Left" Height="0" Width="180"/>
                 <MenuItem x:Name="mArchivoImprimir" Header="_Imprimir" HorizontalAlignment="Left" Height="24" Width="180"/>
                 <Separator x:Name="mArchivoSeparador6" HorizontalAlignment="Left" Height="0" Width="180"/>
@@ -35,8 +35,11 @@
                 <MenuItem x:Name="mEditarCortar" Header="_Cortar" HorizontalAlignment="Left" Height="24" Width="180"/>
             </MenuItem>
         </Menu>
-        <StatusBar x:Name="stb" Height="24" Grid.RowSpan="2" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="txtMain" Margin="0,24,0,22" TextWrapping="Wrap" AcceptsReturn="True" SelectionBrush="White"/>
+        <StatusBar x:Name="stb" Height="24" Grid.RowSpan="2" VerticalAlignment="Bottom">
+            <StatusBarItem x:Name="panelEstado" Content="Guardado" Width="80" />
+            <StatusBarItem x:Name="panelNombre" Content="&lt; Sin Nombre" BorderBrush="Gray" BorderThickness="1,0,0,0"/>
+        </StatusBar>
+        <TextBox x:Name="txtTexto" Margin="0,24,0,22" TextWrapping="Wrap" AcceptsReturn="True" SelectionBrush="White" TextChanged="txtTexto_TextChanged"/>
 
     </Grid>
 </Window>
