@@ -28,11 +28,21 @@
                 <MenuItem x:Name="mArchivoSalir" Header="_Salir" HorizontalAlignment="Left" Height="24" Width="180" Click="mArchivoSalir_Click"/>
             </MenuItem>
             <MenuItem x:Name="mEditar" Header="_Editar" Height="24" Width="48">
-                <MenuItem x:Name="mEditarCopiar" Header="_Copiar" HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mEditarCopiar" Header="_Copiar" HorizontalAlignment="Left" Height="24" Width="180" Click="mEditarCopiar_Click" InputGestureText="Ctrl_C"/>
                 <Separator x:Name="mEditarSeparador1" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mEditarPegar" Header="_Pegar" HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mEditarPegar" Header="_Pegar" HorizontalAlignment="Left" Height="24" Width="180" Click="mEditarPegar_Click" InputGestureText="Ctrl_V"/>
                 <Separator x:Name="mEditarSeparador2" HorizontalAlignment="Left" Height="0" Width="180"/>
-                <MenuItem x:Name="mEditarCortar" Header="_Cortar" HorizontalAlignment="Left" Height="24" Width="180"/>
+                <MenuItem x:Name="mEditarCortar" Header="_Cortar" HorizontalAlignment="Left" Height="24" Width="180" Click="mEditarCortar_Click" InputGestureText="Ctrl_X"/>
+            </MenuItem>
+            <MenuItem x:Name="mFuente" Header="Fuente" Height="24" Width="56">
+                <MenuItem x:Name="mFuenteNegrita" Header="_Negrita" HorizontalAlignment="Left" Height="24" Width="216" InputGestureText="Ctrl_B" Click="mFuenteNegrita_Click"/>
+                <MenuItem x:Name="mFuenteCursiva" Header="_Cursiva" HorizontalAlignment="Left" Height="24" Width="216" InputGestureText="Ctrl_K" Click="mFuenteCursiva_Click"/>
+                <MenuItem x:Name="mFuenteSubrayado" Header="_Subrayado" HorizontalAlignment="Left" Height="24" Width="216" InputGestureText="Ctrl_U" Click="mFuenteSubrayado_Click"/>
+                <Separator x:Name="mFuenteSeparador3" HorizontalAlignment="Left" Height="0" Width="216"/>
+                <MenuItem x:Name="mFuenteAumentar" Header="_Aumentar Tamaño" HorizontalAlignment="Left" Height="24" Width="216" InputGestureText="Ctrl_+" Click="mFuenteAumentar_Click"/>
+                <MenuItem x:Name="mFuenteDisminuir" Header="_Disminuir Tamaño" HorizontalAlignment="Left" Height="24" Width="216" InputGestureText="Ctrl_-" Click="mFuenteDisminuir_Click"/>
+                <Separator x:Name="mFuenteSeparador5" HorizontalAlignment="Left" Height="0" Width="216"/>
+                <MenuItem x:Name="mFuenteFuentes" Header="Fuentes" HorizontalAlignment="Left" Height="24" Width="216" Click="mFuentes_Click"/>
             </MenuItem>
         </Menu>
         <StatusBar x:Name="stb" Height="24" Grid.RowSpan="2" VerticalAlignment="Bottom">

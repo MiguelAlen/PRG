@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Microsoft.Win32;
 using System.IO;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace Q3Editor
 {
@@ -25,7 +26,7 @@ namespace Q3Editor
         private bool guardado = true;
         private MessageBoxResult ComfirmacionBox(string texto)
         {
-            return MessageBox.Show(texto, "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            return System.Windows.MessageBox.Show(texto, "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
         private void SeGuarda()
         {
@@ -58,6 +59,26 @@ namespace Q3Editor
             Alt_F4.InputGestures.Add(new KeyGesture(Key.F4, ModifierKeys.Control));
             CommandBindings.Add(new CommandBinding(Alt_F4, mArchivoNuevo_Click));
 
+            RoutedCommand Ctrl_B = new RoutedCommand();
+            Ctrl_B.InputGestures.Add(new KeyGesture(Key.B, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(Ctrl_B, mFuenteNegrita_Click));
+
+            RoutedCommand Ctrl_K= new RoutedCommand();
+            Ctrl_K.InputGestures.Add(new KeyGesture(Key.K, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(Ctrl_K, mFuenteCursiva_Click));
+
+            RoutedCommand Ctrl_U = new RoutedCommand();
+            Ctrl_U.InputGestures.Add(new KeyGesture(Key.U, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(Ctrl_U, mFuenteSubrayado_Click));
+
+            RoutedCommand Ctrl_Mas = new RoutedCommand();
+            Ctrl_Mas.InputGestures.Add(new KeyGesture(Key.Add, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(Ctrl_Mas, mFuenteAumentar_Click));
+            
+            RoutedCommand Ctrl_Menos = new RoutedCommand();
+            Ctrl_Menos.InputGestures.Add(new KeyGesture(Key.Subtract, ModifierKeys.Control));
+            CommandBindings.Add(new CommandBinding(Ctrl_Menos, mFuenteDisminuir_Click));
+
             txtTexto.Focus();
         }
 
@@ -88,7 +109,7 @@ namespace Q3Editor
             openFileDialog.RestoreDirectory = true;
 
             // Si pulsamos abrir... del menu abrir
-            if (openFileDialog.ShowDialog() == true)
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Declaro una variable de tipo fichero
                 var fileStream = openFileDialog.OpenFile();
@@ -147,7 +168,7 @@ namespace Q3Editor
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.RestoreDirectory = false;
 
-            if (saveFileDialog.ShowDialog() == true)
+            if (saveFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Indicamos el nombre
                 panelNombre.Content = saveFileDialog.FileName;
@@ -180,6 +201,97 @@ namespace Q3Editor
                 guardado = false;
 
                 panelEstado.Content = "No Guardado";
+            }
+        }
+
+        private void mEditarCortar_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtTexto.SelectedText != "")
+            {
+                txtTexto.Cut();
+            }
+        }
+
+        private void mEditarCopiar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtTexto.SelectionLength > 0)
+            {
+                txtTexto.Copy();
+            }
+        }
+
+        private void mEditarPegar_Click(object sender, RoutedEventArgs e)
+        {
+            txtTexto.Paste();
+        }
+
+        private void mFuenteNegrita_Click(object sender, RoutedEventArgs e)
+        {
+            if (mFuenteNegrita.IsChecked)
+            {
+                txtTexto.FontWeight = FontWeights.Normal;
+                mFuenteNegrita.IsChecked = false;
+            }
+            else
+            {
+                txtTexto.FontWeight = FontWeights.Bold;
+                mFuenteNegrita.IsChecked = true;
+            }
+        }
+
+        private void mFuenteCursiva_Click(object sender, RoutedEventArgs e)
+        {
+            if (mFuenteCursiva.IsChecked)
+            {
+                txtTexto.FontStyle = FontStyles.Normal;
+                mFuenteCursiva.IsChecked = false;
+            }
+            else
+            {
+                txtTexto.FontStyle = FontStyles.Italic;
+                mFuenteCursiva.IsChecked = true;
+            }
+        }
+
+        private void mFuenteSubrayado_Click(object sender, RoutedEventArgs e)
+        {
+            if (mFuenteSubrayado.IsChecked)
+            {
+                txtTexto.TextDecorations = null;
+                mFuenteSubrayado.IsChecked = false;
+            }
+            else
+            {
+                txtTexto.TextDecorations = TextDecorations.Underline;
+                mFuenteSubrayado.IsChecked = true;
+            }
+        }
+
+        private void mFuenteAumentar_Click(object sender, RoutedEventArgs e)
+        {
+            txtTexto.FontSize++;
+        }
+
+        private void mFuenteDisminuir_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtTexto.FontSize > 1)
+            {
+                txtTexto.FontSize--;
+            }
+        }
+
+        private void mFuenteFuentes_Click(object sender, RoutedEventArgs e)
+        {
+            FontDialog dlg = new FontDialog();
+            dlg.ShowDialog();
+
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                string fontName;
+                float fontSize;
+                fontName = dlg.Font.Name;
+                fontSize = dlg.Font.Size;
+                System.Windows.MessageBox.Show(fontName + "    " + fontSize);
             }
         }
     }
