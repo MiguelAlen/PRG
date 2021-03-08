@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ej6._2._3
 {
-    public class Libro
+    public class Libro : Documento
     {
-        string autor;
-        string ubicacion;
-        string titulo;
+        protected string autor;
+        protected string ubicacion;
+        protected string titulo;
 
         public void SetAutor(string autor)
         {
