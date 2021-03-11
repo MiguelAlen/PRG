@@ -15,9 +15,11 @@ namespace ej6._6._1
         {
             this.nombre = "";
         }
-        public Persona(string n)
+        //corregir
+        public Persona(string nombre, int i)
         {
             this.nombre = n;
+            
         }
         public void SetNombre(string nombre)
         {

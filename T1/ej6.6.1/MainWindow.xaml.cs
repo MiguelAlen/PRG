@@ -26,6 +26,7 @@ namespace ej6._6._1
         {
             InitializeComponent();
             i = 0;
+            // arrays tipo clase especifica 
             persona = new Persona[10];           
         }
 
@@ -34,6 +35,7 @@ namespace ej6._6._1
             if (pbPersona.Value == 10) { MessageBox.Show("No queda espacio"); }
             else
             {
+                // constructor parametrizado -> inicializar el objeto (parametros)
                 if (txtPersona.Equals("") == false)
                 {
                     persona[i] = new Persona();
@@ -41,7 +43,8 @@ namespace ej6._6._1
                     persona[i].id = i;
                     i++;
                     pbPersona.Value++;
-                    cbPersona.Items.Insert(i, persona[i]);
+                    //cbPersona.Items.Insert(i, persona[i]);
+                    cbPersona.Items.Add(persona[i].nombre);
                 }
             }
         }
@@ -50,5 +53,6 @@ namespace ej6._6._1
         {
             txtPersona.Text = "";
         }
+
     }
 }
