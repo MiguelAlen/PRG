@@ -20,33 +20,26 @@ namespace ej6._6._1
     /// </summary>
     public partial class MainWindow : Window
     {
-        Persona[] persona;
+        List<Persona> miPersona = new List<Persona>();
         int i;
         public MainWindow()
         {
             InitializeComponent();
             i = 0;
-            // arrays tipo clase especifica 
-            persona = new Persona[10];           
         }
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
-            if (pbPersona.Value == 10) { MessageBox.Show("No queda espacio"); }
-            else
+            if (txtPersona.Equals("") == false)
             {
-                // constructor parametrizado -> inicializar el objeto (parametros)
-                if (txtPersona.Equals("") == false)
-                {
-                    persona[i] = new Persona();
-                    persona[i].SetNombre(txtPersona.Text);
-                    persona[i].id = i;
-                    i++;
-                    pbPersona.Value++;
-                    //cbPersona.Items.Insert(i, persona[i]);
-                    cbPersona.Items.Add(persona[i].nombre);
-                }
+                miPersona.Add(new Persona());
+                miPersona[i].nombre = txtPersona.Text;
+                miPersona[i].id = i;
+                cbPersona.Items.Add(miPersona[i].nombre);
+                cbPersona.SelectedIndex = i;
+                i++;
             }
+            
         }
 
         private void btnCancelar_Click(object sender, RoutedEventArgs e)

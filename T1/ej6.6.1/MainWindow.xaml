@@ -11,8 +11,6 @@
         <TextBox x:Name="txtPersona" HorizontalAlignment="Left" Height="23" Margin="14,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="139,141,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="219,141,0,0" VerticalAlignment="Top" Width="75" Click="btnCancelar_Click"/>
-        <ProgressBar x:Name="pbPersona" HorizontalAlignment="Left" Height="10" Margin="14,69,0,0" VerticalAlignment="Top" Width="100" Maximum="10"/>
-        <Label x:Name="lbCapacidad" Content="Capacidad" HorizontalAlignment="Left" Margin="14,45,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbPersona" HorizontalAlignment="Left" Margin="14,203,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.507,2.587"/>
         <Label x:Name="lbCbPersona" Content="Consultar personas" HorizontalAlignment="Left" Margin="14,177,0,0" VerticalAlignment="Top"/>
     </Grid>
