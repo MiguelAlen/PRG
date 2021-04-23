@@ -25,7 +25,22 @@ namespace ej8._1._1.consola
             }
             else
             {
-                sw = File.AppendText(filename);
+                Console.WriteLine("El archivo ya existe");
+                Console.WriteLine("Desea:");
+                Console.WriteLine("1: Sobrescribir el archivo");
+                Console.WriteLine("2: Añadir al archivo");
+                Console.WriteLine("3: Renombrar el archivo");
+                Console.WriteLine("s: Salir");
+                char c = Convert.ToChar(Console.ReadLine());
+                switch (c)
+                {
+                    case '1':
+                        sw = File.CreateText(filename);
+                        break;
+                    case '2':
+                        sw = File.AppendText(filename);
+                        break;
+                }
             }
         }
         ~Escritor()
