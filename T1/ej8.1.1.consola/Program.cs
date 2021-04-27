@@ -40,6 +40,17 @@ namespace ej8._1._1.consola
                     case '2':
                         sw = File.AppendText(filename);
                         break;
+                    case '3':
+                        sw.Close();
+                        Console.WriteLine("Insertar nuevo nombre para el archivo:");
+                        nombre = Convert.ToString(Console.ReadLine());
+                        Escritor re = new Escritor(nombre);
+
+                        /* nombre = Convert.ToString(Console.ReadLine());
+                        filename = path + nombre + ".txt";
+                        sw = File.CreateText(filename); */
+
+                        break;
                 }
             }
         }
