@@ -16,61 +16,66 @@ namespace practica4
 
             string path = Convert.ToString(Console.ReadLine());
 
-            string valencia = @"D:\Alentado\PRG\ficheros\valencia.txt";
-            string alicante = @"D:\Alentado\PRG\ficheros\alicante.txt";
-            string castellon = @"D:\Alentado\PRG\ficheros\castellon.txt";
+            string valencia = "valencia.txt";
+            string alicante = "alicante.txt";
+            string castellon = "castellon.txt";
 
-            using (StreamWriter a = File.CreateText(alicante))
-            using (StreamWriter v = File.CreateText(valencia))
-            using (StreamWriter c = File.CreateText(castellon))
+            //split
+            char delimitador = '#';
+            string[] campos = new string[3];
 
-                if (!File.Exists(path))
+            if (File.Exists(path))
                 {
+                    fichero = File.OpenText(path);
+                    StreamWriter a = File.CreateText(alicante);
+                    StreamWriter v = File.CreateText(valencia);
+                    StreamWriter c = File.CreateText(castellon);
                     try
                     {
-                        fichero = File.OpenText(path);
+                    
                         do
                         {
                             linea = fichero.ReadLine();
                             if (linea != null)
                             {
-                                Console.WriteLine(linea);
+                                campos = linea.Split(delimitador);
+                                Console.WriteLine(linea + ": se ha añadido");
+                                
                                 //ALICANTE
-                                if (linea.Contains("Alicante") == true)
-                                {
-                                    using (StreamWriter al = File.AppendText(alicante))
-                                    {
-                                        al.WriteLine(linea);
-                                    }
+                                if (campos[2] == ("Alicante"))
+                                {                                                                      
+                                     a.WriteLine(linea);                                    
                                 }
 
                                 //VALENCIA
-                                if (linea.Contains("Valencia") == true)
+                                if (campos[2] == ("Valencia"))
+                                
                                 {
-                                    using (StreamWriter val = File.AppendText(valencia))
-                                    {
-                                        val.WriteLine(linea);
-                                    }
-                                }
+                                    v.WriteLine(linea);
+                                }                           
 
                                 //CASTELLON
-                                if (linea.Contains("Castellón") == true)
+                                if (campos[2] == ("Castellón"))
                                 {
-                                    using (StreamWriter cast = File.AppendText(castellon))
-                                    {
-                                        cast.WriteLine(linea);
-                                    }
+                                    c.WriteLine(linea);
                                 }
                             }
                         }
                         while (linea != null);
-                        fichero.Close();
+                        
                     }
                     catch (Exception e)
                     {
                         Console.WriteLine("Ha ocurrido un error inesperado {0}", e);
+                        Console.WriteLine("");
                     }
+                
+                fichero.Close();
+                a.Close();
+                v.Close();
+                c.Close();
                 }
+                else{ Console.WriteLine("No se ha encontrado el archivo"); }
         }
     }
 }
