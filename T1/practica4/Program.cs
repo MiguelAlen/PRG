@@ -1,6 +1,14 @@
 ﻿using System;
 using System.IO;
 namespace practica4
+
+// --------------------------------------------
+// Miguel Alentado Garcia
+// Curso DAM
+// Modalidad Presencial
+// Práctica nº 4
+// --------------------------------------------
+
 {
     class Program
     {
@@ -33,7 +41,7 @@ namespace practica4
                     try
                     {
                     
-                        do
+                        do //switch
                         {
                             linea = fichero.ReadLine();
                             if (linea != null)
